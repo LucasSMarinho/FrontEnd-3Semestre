@@ -1,0 +1,69 @@
+*  /* Reset Css*/
+{
+
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    /* Definindo a fonte do site */
+    font-family: fantasy;
+    letter-spacing: 2px;
+}
+
+
+body
+{
+    margin-top: 10px;
+    background-color: rgb(179, 179, 179);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sessao-noticias
+{
+    background-color:rgb(23, 63, 69);
+    width: 920px;
+    height: 800px;
+
+
+    /* Flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 210px;
+}
+
+.noticia
+{
+    height: 400px;
+    width: 400px;
+
+    background-color:   rgb(63, 3, 8);
+    color: gold;
+}
+
+
+@media (max-width:700px)
+{
+    
+.sessao-noticias
+{
+    margin-top: 10px;
+ 
+    /* Flex */
+
+    display: flex;
+    flex-direction: column;
+}
+
+.noticia
+{
+    width: 100%;
+}
+
+}

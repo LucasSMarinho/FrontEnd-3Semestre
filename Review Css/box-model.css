@@ -1,0 +1,59 @@
+*  /* Reset Css*/
+{
+
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+
+    /* Definindo a fonte do site */
+    font-family: fantasy;
+    letter-spacing: 2px;
+}
+
+main 
+{
+    display: flex;
+}
+
+header 
+{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(209, 158, 92);
+    
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+    margin-bottom: 10px;
+}
+
+body 
+{
+ background-color: wheat;
+}
+
+.caixa
+{
+
+    box-sizing: border-box;
+
+    width: 220px; /* content */
+    height: 270px; /* content */
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 10px;
+    margin: 2px;
+
+    background-color: rgb(219, 183, 135);
+}
+
+.Articledaimagem
+{
+    width: 100%;
+    height: 20px;
+}
