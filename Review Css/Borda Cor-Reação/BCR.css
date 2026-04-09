@@ -1,0 +1,42 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: rgb(5, 5, 30);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.caixa
+{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(10, 10, 63);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+}
+
+.caixa::before, .caixa::after
+{
+    content: "";
+    position: absolute;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    background: linear-gradient(45deg, #001aff, #a200ff, #ff0055, #ff0000, #ffff00, #00ff00, #001aff, #a200ff, #ff0055, #ff0000, #ffff00, #00ff00,);
+    background-size: 300%;
+    border-radius: 8px;
+}

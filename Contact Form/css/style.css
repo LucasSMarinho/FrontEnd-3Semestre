@@ -1,0 +1,192 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    font-family: sans-serif;
+}
+
+@font-face
+{
+    font-family: Architects;
+    src: url(../css/fonts/ArchitectsDaughter-Regular.ttf);
+}
+
+body 
+{
+    min-height: 100vh;
+    width: 100vw;
+
+    background-image: linear-gradient(to right top, rgb(10, 176, 242) 0%,  rgb(33, 224, 109)100%);
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.container 
+{
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container--flex 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+
+.form-header__image--perfil 
+{
+    height: 75px;
+    width: 75px;
+
+    padding: 5px;
+    transition: all 300ms;
+}
+
+.form-header__image--perfil:hover
+{
+    box-shadow: 0px 0px 15px rgba(255, 225, 0, 0.3);
+    background-color: rgba(255, 225, 0, 0.205);
+}
+
+.form-header__text
+{
+    font-weight: bold;
+}
+
+.form-header__text--title
+{
+    color: rgba(222, 210, 124);
+    font-family: Architects, sans-serif;
+}
+
+.form-header__text--paragraph
+{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* formulário de contato */
+
+.form-contact
+{
+    padding: 20px;
+}
+
+.form-contact__linha
+{
+    width: 100%;
+
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.form-contact__col-a
+{
+    width: 10%;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+}
+
+.form-contact__col-a > label
+{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 550;
+    font-size: 18px;
+}
+
+.form-contact__col-b
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    
+    width: 90%;
+}
+
+.form-contact__imput
+{
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgb(172, 172, 172);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    
+    padding: 5px;
+    padding-left: 10px;
+    outline: none;
+
+    transition: box-shadow 0.4s, color 0.4s;
+}
+
+.form-contact__imput:focus
+{
+   color: white;
+   background-color: rgb(66, 154, 255);
+   box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+.form-contact__imput::placeholder
+{
+   color: rgb(140, 140, 140);
+   font-family: 'Courier New', Courier, monospace;  
+   font-weight: 500;
+}
+
+.form-contact__imput--metade
+{
+    width: 50%;
+}
+
+.form-contact__imput--inteiro
+{
+    width: 100%;
+}
+
+@media (max-width: 480px)
+{
+    .form-header
+    {
+       width: 100%;
+    }
+
+    .form-header__text--title
+    {
+        font-size: x-large;
+    }
+
+    .form-header__text--paragraph
+    {
+        font-size: medium;
+        text-align: center;
+    }
+}
