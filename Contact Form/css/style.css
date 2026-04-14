@@ -20,7 +20,7 @@ body
     min-height: 100vh;
     width: 100vw;
 
-    background-image: linear-gradient(to right top, rgb(10, 176, 242) 0%,  rgb(33, 224, 109)100%);
+    background-image: linear-gradient(to right top, rgb(10, 176, 242) 0%,  rgb(33, 132, 224)100%);
     background-repeat: no-repeat;
 
     display: flex;
@@ -82,7 +82,7 @@ main
 
 .form-header__text--paragraph
 {
-    color: black;
+    color: rgb(255, 255, 255);
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -101,9 +101,8 @@ main
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
-    margin-bottom: 20px;
+    margin-top: 11px;
 }
 
 
@@ -113,7 +112,7 @@ main
     height: 35px;
 
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
 .form-contact__col-a > label
@@ -122,18 +121,41 @@ main
     color: white;
     font-weight: 550;
     font-size: 18px;
+
+    justify-content: start;
 }
 
 .form-contact__col-b
 {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 2%;
-    
+
     width: 90%;
 }
 
+.form-contact__col-b--Nome
+{
+    gap: 5%;
+}
+
+.form-contact__col-b--Phone
+{
+    gap: 5%;
+}
+
+.form-contact__col-b--Endereco
+{
+    flex-wrap: wrap;
+    gap: 5%;
+    justify-content: space-between;
+}
+
+.form-contact__col-b--Button
+{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
 .form-contact__imput
 {
     height: 35px;
@@ -148,6 +170,25 @@ main
     transition: box-shadow 0.4s, color 0.4s;
 }
 
+.button__light
+{
+    height: 50px;
+    width: 40%;
+    
+    background: none;
+    border: 3px solid white;
+    border-radius: 5px;
+
+    color: white;
+    font-family: Architects, sans-serif;;
+}
+
+.button__light:hover
+{
+   background-color: rgb(66, 154, 255);
+   box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
 .form-contact__imput:focus
 {
    color: white;
@@ -160,6 +201,47 @@ main
    color: rgb(140, 140, 140);
    font-family: 'Courier New', Courier, monospace;  
    font-weight: 500;
+}
+
+.form-contact__textarea
+{
+    height: 210px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(172, 172, 172);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    
+    padding: 10px;
+    padding-left: 10px;
+    outline: none;
+
+    transition: box-shadow 0.4s, color 0.4s;
+
+    resize: none;
+}
+
+.form-contact__textarea:focus
+{
+   color: white;
+   background-color: rgb(66, 154, 255);
+   box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+.form-contact__textarea::placeholder
+{
+   color: rgb(140, 140, 140);
+   font-family: 'Courier New', Courier, monospace;  
+   font-weight: 500;
+}
+
+.form-contact__imput--quarto
+{
+    width: 20%;
+}
+
+.form-contact__imput--terco
+{
+    width: 30%;
 }
 
 .form-contact__imput--metade
@@ -189,4 +271,60 @@ main
         font-size: medium;
         text-align: center;
     }
+
+    .form-contact
+    {
+        width: 100%;
+    }
+
+    .form-contact__col-b
+    {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .form-contact__imput
+    {
+        width: 100%;
+    }
+
+    .form-contact__col-a
+    {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px)
+{
+    .form-contact__linha
+    {
+        justify-content: space-between;
+        display: flex;  
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+   .form-contact__col-b
+    {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        gap: 10px;
+    }
+
+    .form-contact__imput
+    {
+        width: 75%;
+    }
+
+    .button__light
+    {
+        width: 100%;
+    }
+
+    
 }
