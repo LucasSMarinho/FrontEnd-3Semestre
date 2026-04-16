@@ -2,6 +2,17 @@ function validarFormulario() {
     let nome = document.getElementById("Nome").value;
     let sobrenome = document.getElementById("Sobrenome").value;
     let email = document.getElementById("Email").value;
+    let DDI = document.getElementById("DDI").value;
+    let DDD = document.getElementById("DDD").value;
+    let Phone = document.getElementById("Phone").value;
+    let Cep = document.getElementById("Phone").value;
+    let Rua = document.getElementById("Rua").value;
+    let Numero = document.getElementById("Numero").value;
+    let Complemento = document.getElementById("Complemento").value;
+    let Bairro = document.getElementById("Complemento").value;
+    let Cidade = document.getElementById("Complemento").value;
+    let Estado = document.getElementById("Complemento").value;
+    let Anotacoes = document.getElementById("Anotacoes").value;
 
     let quantidadeErros = 0;
 
@@ -32,6 +43,102 @@ function validarFormulario() {
     }
     else {
         reiniciaBorda("Email")
+    }
+
+    //DDI
+    if (DDI.trim().length == 0) {
+        formError("DDI");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("DDI")
+    }
+
+    //DDD
+    if (DDD.trim().length == 0) {
+        formError("DDD");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("DDD")
+    }
+
+    //Phone
+    if (Phone.trim().length == 0) {
+        formError("Phone");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Phone")
+    }
+    
+    //Cep
+    if (Cep.trim().length == 0) {
+        formError("Cep");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Cep")
+    }
+
+    //Rua
+    if (Rua.trim().length == 0) {
+        formError("Rua");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Rua")
+    }
+
+    //Numero
+    if (Numero.trim().length == 0) {
+        formError("Numero");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Numero")
+    }
+
+    //Complemento
+    if (Complemento.trim().length == 0) {
+        formError("Complemento");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Complemento")
+    }
+    
+    //Bairro
+    if (Bairro.trim().length == 0) {
+        formError("Bairro");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Bairro")
+    }
+
+    //Cidade
+    if (Cidade.trim().length == 0) {
+        formError("Cidade");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Cidade")
+    }
+
+    //Estado
+    if (Estado.trim().length == 0) {
+        formError("Estado");
+        quantidadeErros++;
+    }
+
+    //Anotacoes
+    if (Anotacoes.trim().length == 0) {
+        formError("Anotacoes");
+        quantidadeErros++;
+    }
+    else {
+        reiniciaBorda("Anotacoes")
     }
 
     //Verifica
