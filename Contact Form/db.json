@@ -1,0 +1,57 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contatos": [
+    {
+      "id": "1",
+      "Nome": "Lucas",
+      "Sobrenome": "Souza Marinho"
+    },
+    {
+      "Nome": "LUCAS",
+      "Sobrenome": "MARINHO",
+      "id": "p5wHvWMuOuY"
+    },
+    {
+      "Nome": "Lucas",
+      "Sobrenome": "Souza",
+      "Email": "213456789657890@aluno.senai.br",
+      "DDI": "+55",
+      "DDD": "11",
+      "Phone": "21345t6y",
+      "Cep": "234562345",
+      "Rua": "Rua Mapa",
+      "Numero": "2134",
+      "Bairro": "Cidade 23456",
+      "Cidade": "São",
+      "Estado": "PR",
+      "id": "URXLREAMZHQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
