@@ -1,0 +1,39 @@
+{
+  "usuario": [
+    {
+      "id": "XMdpIch_5cs",
+      "nome": "Matheus",
+      "idade": 17,
+      "email": "Matheus@email.com"
+    },
+    {
+      "nome:": "Octo",
+      "idade": 16,
+      "email": "OttoOcto@email.com",
+      "id": "bKo3Zx2Li2c"
+    },
+    {
+      "id": "Pw7CH63jPwI",
+      "nome": "Lucas",
+      "idade": 16,
+      "email": "Luc@email.com"
+    }
+  ],
+  "post": [
+    {
+      "id": "1",
+      "texto": "blah blah blah",
+      "qtdCurtidas": 12,
+      "imagem": "https://www.google.com/imgres?q=imagem&imgurl=https%3A%2F%2Fpng.pngtree.com%2Fthumb_back%2Ffh260%2Fbackground%2F20240522%2Fpngtree-abstract-cloudy-background-beautiful-natural-streaks-of-sky-and-clouds-red-image_15684333.jpg&imgrefurl=https%3A%2F%2Fpt.pngtree.com%2Ffree-picture&docid=dRJ2jdO0s0piYM&tbnid=7ioh4pHQNQJqGM&vet=12ahUKEwiihILHh4SUAxUwpJUCHRPPCyUQnPAOegQIHBAB..i&w=720&h=404&hcb=2&ved=2ahUKEwiihILHh4SUAxUwpJUCHRPPCyUQnPAOegQIHBAB"
+    },
+    {
+      "texto": "Post aleatorio",
+      "qtdCurtidas": 200,
+      "imagem": "https://www.google.com/imgres?q=imagem&imgurl=https%3A%2F%2Fblog.emania.com.br%2Fwp-content%2Fuploads%2F2016%2F02%2Fdireitos-autorais-e-de-imagem.jpg&imgrefurl=https%3A%2F%2Fblog.emania.com.br%2Fdireitos-autorais-aspectos-legais-da-fotografia%2F&docid=KIA-aadaLQmduM&tbnid=dE8ITd887JVOqM&vet=12ahUKEwiihILHh4SUAxUwpJUCHRPPCyUQnPAOegQIHxAB..i&w=1920&h=1280&hcb=2&ved=2ahUKEwiihILHh4SUAxUwpJUCHRPPCyUQnPAOegQIHxAB",
+      "id": "ZDXTwQMT230"
+    }
+  ],
+  "frutas": [],
+  "jogos": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
