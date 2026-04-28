@@ -123,6 +123,43 @@
       "id": "0R7A7nwY1cY"
     }
   ],
+  "calculos": [
+    {
+      "N1": 50,
+      "N2": 50,
+      "Operacao": "soma",
+      "Resultado": 100,
+      "id": "9GQC0nFlRVk"
+    },
+    {
+      "N1": 12,
+      "N2": 11,
+      "Operacao": "soma",
+      "Resultado": "23.00",
+      "id": "aV2dZPe5J4c"
+    },
+    {
+      "N1": 145,
+      "N2": 15,
+      "Operacao": "subtracao",
+      "Resultado": "130.00",
+      "id": "4MSOA-qhFrk"
+    },
+    {
+      "N1": 145,
+      "N2": 15,
+      "Operacao": "multiplicacao",
+      "Resultado": "2175.00",
+      "id": "B34W_ySAWG4"
+    },
+    {
+      "N1": 145,
+      "N2": 15,
+      "Operacao": "divisao",
+      "Resultado": "9.67",
+      "id": "x8MOaV_vuiA"
+    }
+  ],
   "frutas": [],
   "jogos": [],
   "$schema": "./node_modules/json-server/schema.json"
