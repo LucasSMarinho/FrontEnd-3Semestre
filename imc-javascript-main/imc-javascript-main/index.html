@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="carregarDados()">
     <h1>Cadastro IMC >></h1>
     <form>
         <fieldset>
@@ -24,7 +24,7 @@
     </form>
     <section>
         <table>
-            <thead id="tabela">
+            <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Altura</th>
@@ -34,7 +34,9 @@
                 </tr>
             </thead>
 
-            <tbody id="cadastro"></tbody>
+            <tbody id="cadastro">
+                
+            </tbody>
         </table>
     </section>
 

@@ -33,6 +33,96 @@
       "id": "ZDXTwQMT230"
     }
   ],
+  "IMCs": [
+    {
+      "nome": "Eduardo",
+      "altura": 1.66,
+      "peso": 80,
+      "IMC": "29.03",
+      "situação": "Excesso de peso",
+      "id": "DMTlNgFh4bQ"
+    },
+    {
+      "nome": "Lucas",
+      "altura": 1.88,
+      "peso": 75,
+      "IMC": "21.22",
+      "situação": "Peso normal",
+      "id": "z7WHPbRyb-8"
+    },
+    {
+      "nome": "Pedro Enzo Dev",
+      "altura": 1.7,
+      "peso": 60,
+      "IMC": "20.76",
+      "situação": "Peso normal",
+      "id": "QvI_AcbRS10"
+    },
+    {
+      "nome": "Matheus",
+      "altura": 1.75,
+      "peso": 70,
+      "IMC": "22.86",
+      "situação": "Peso normal",
+      "id": "Zhm5X1P-k9M"
+    },
+    {
+      "nome": "Gus",
+      "altura": 1.7,
+      "peso": 80,
+      "IMC": "27.68",
+      "situação": "Excesso de peso",
+      "id": "kZPuxWmxOEE"
+    },
+    {
+      "nome": "Amy Lee",
+      "altura": 1.65,
+      "peso": 60,
+      "IMC": "22.04",
+      "situação": "Peso normal",
+      "id": "iYKP66CszBU"
+    },
+    {
+      "nome": "Lucas",
+      "altura": 1.88,
+      "peso": 70,
+      "IMC": "19.81",
+      "situação": "Peso normal",
+      "id": "vys6sI4uuX0"
+    },
+    {
+      "nome": "Benjamin",
+      "altura": 1.9,
+      "peso": 70,
+      "IMC": "19.39",
+      "situação": "Peso normal",
+      "id": "WCaRSjdyt84"
+    },
+    {
+      "nome": "Dexter",
+      "altura": 1.86,
+      "peso": 77,
+      "IMC": "22.26",
+      "situação": "Peso normal",
+      "id": "0bOjT-rjWIk"
+    },
+    {
+      "nome": "henrique",
+      "altura": 1.72,
+      "peso": 60,
+      "IMC": "20.28",
+      "situação": "Peso normal",
+      "id": "s_PbFySiRUY"
+    },
+    {
+      "nome": "alberto",
+      "altura": 1.7,
+      "peso": 80,
+      "IMC": "27.68",
+      "situação": "Excesso de peso",
+      "id": "0R7A7nwY1cY"
+    }
+  ],
   "frutas": [],
   "jogos": [],
   "$schema": "./node_modules/json-server/schema.json"
