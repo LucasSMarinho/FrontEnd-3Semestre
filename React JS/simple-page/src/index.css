@@ -1,0 +1,13 @@
+*  /* Reset Css*/
+{
+
+    text-decoration: none;
+    color: black;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    /* Definindo a fonte do site */
+    font-family: fantasy;
+    letter-spacing: 2px;
+}
