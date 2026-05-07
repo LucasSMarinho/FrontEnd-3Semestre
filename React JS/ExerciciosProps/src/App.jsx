@@ -1,6 +1,6 @@
 import './App.css'
+import { useState } from 'react';
 import imagemAluno from'../src/assets/hero.png';
-import './components/Exercicio4/Botao.css'
 import Saudacao from './components/Exercicio1/Saudacao'
 import Produto from './components/Exercicio2/Produto'
 import Perfil from './components/Exercicio3/Perfil'
@@ -13,6 +13,8 @@ import Jogo from './components/Exercicio9/Jogo';
 import ItemLoja from './components/Exercicio10/ItemLoja';
 
 
+
+    
 
 const Pessoas = [
 {
@@ -34,9 +36,7 @@ const Pessoas = [
   profissao: "Analista de Dados"
 }
 ]
-
-const App = () => {
-
+      const App = () => {
   return (
     
     <>
@@ -52,7 +52,7 @@ const App = () => {
       <Perfil nome="Matheus" idade={30} profissao="Designer" />
       <Perfil nome="Pedro" idade={28} profissao="Analista de Dados" /> */}
 
-      {/* <Botao texto="Botão Vermelho" cor="vermelho" /> */}
+      <Botao texto="Botão Colorido" cor="vermelho" />
 
       {/* <Filme titulo="O Poderoso Chefão" ano={1972} genero="Crime/Drama" nota={9.2} />
       <Filme titulo="A Origem" ano={2010} genero="Ficção Científica/Ação" nota={8.8} />
@@ -91,7 +91,6 @@ const App = () => {
 //   )
 // )
   )
-
-}
+      }
 
 export default App
