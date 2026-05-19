@@ -2,15 +2,28 @@ import './contador.css'
 import { useState } from 'react'
 
 
+
 function Contador() {
- const [contador, setContador] = useState(0)
+ const [valor, setValor] = useState(0)
+ 
+  function checarContador(valor) {
+    if (valor > -1 && valor < 11) {
+      setValor(valor)
+    }
+    else
+    {
+      setValor(0)
+    }
+  }
   return (
-    <div className="contador">
+    <>
       <h1>Contador</h1>
-      <p>{contador}</p>
-      <button onClick={() => {return setContador(contador+1)}}>+</button>
-      <button onClick={() => {return setContador(contador-1)}}>-</button>
+    <div className="contador">
+      <button onClick={() => {return setValor(valor+1), checarContador(valor+1)}}>+</button>
+      <p>{valor}</p>
+      <button onClick={() => {return setValor(valor-1), checarContador(valor-1)}}>-</button>
     </div>
+    </>
   )
 }
 

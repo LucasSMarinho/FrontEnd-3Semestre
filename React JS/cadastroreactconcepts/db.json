@@ -1,4 +1,19 @@
 {
-  "produtos": [],
+  "produtos": [
+    {
+      "descricao": "Micro-ondas Electrolux 23L Inox Efficient com Descongelamento Assistido 127v ME23S",
+      "produto": "Microondas",
+      "preco": 1175.23,
+      "imagem": "microondas",
+      "id": "97VBmR0tOxk"
+    },
+    {
+      "descricao": "Geladeira duas-portas",
+      "produto": "Geladeira",
+      "preco": 775,
+      "imagem": "geladeira",
+      "id": "VEntL-eIu8Q"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

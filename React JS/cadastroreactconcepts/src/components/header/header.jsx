@@ -10,7 +10,8 @@ export function Header(){
       <Link className="nav-link" to="/">Home</Link> {" | | "}
       <Link className="nav-link" to="/quemsomos">Quem Somos</Link> {" | | "}
       <Link className="nav-link" to="/cadfrutas">Cadastro de Frutas</Link> {" | | "}
-      <Link className="nav-link" to="/produtos">Produtos</Link>
+      <Link className="nav-link" to="/produtos">Produtos</Link> {" | | "}
+      <Link className="nav-link" to="/atualizarprodutos">Atualizar Produtos</Link>
       </nav>
 
       <section className="secao-produtos">

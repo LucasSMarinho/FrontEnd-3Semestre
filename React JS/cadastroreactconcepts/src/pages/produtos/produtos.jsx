@@ -1,4 +1,5 @@
 import "./produtos.css"
+import api from "../../Services/services"
 import { useEffect, useState } from "react"
 
 export default function ProdutosPage() {
@@ -13,8 +14,8 @@ export default function ProdutosPage() {
 
     async function getDados() {
         try {
-            const retornoAPI = await fetch("http://localhost:3000/produtos")
-            const dados = await retornoAPI.json()
+            const retornoAPI = await api.get("/produtos")
+            const dados = await retornoAPI.data
 
             setArrayProduto(dados)
         }
@@ -36,20 +37,16 @@ export default function ProdutosPage() {
             return
         }
 
-        const ObjetoProduto = {
+        const objetoProduto ={
             descricao: descricao,
             produto: produto,
             preco: preco,
             imagem: imagem
         }
 
-        const retornoAPI = await fetch("http://localhost:3000/produtos", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json; charset=UTF-8' },
-            body: JSON.stringify(ObjetoProduto)
-        })
+        const retornoAPI = await api.post("/produtos", objetoProduto)
 
-        const produtoCadastrado = await retornoAPI.json()
+        const produtoCadastrado = await retornoAPI.data
         setArrayProduto([...arrayProduto, produtoCadastrado])
         limparCampos()
 
@@ -61,10 +58,12 @@ export default function ProdutosPage() {
 
     const Deletar = async (e) => {
 
+        if( !confirm("Você realmente quer apagar o produto?"))
+            return false
+
         try {
-            const retornoAPI = await fetch(`http://localhost:3000/produtos/${e}`, {
-                method: "Delete",
-            })
+            const retornoAPI = await api.delete(`/produtos/${e}`)
+            alert("produto deletado com sucesso")
         }
         catch (erro) {
             console.log(erro)
@@ -75,6 +74,9 @@ export default function ProdutosPage() {
 
     function limparCampos() {
         setProduto("")
+        setDescricao("")
+        setImagem("")
+        setPreco(0)
     }
 
     return (
@@ -89,6 +91,7 @@ export default function ProdutosPage() {
 
                             type="text"
                             id="produto"
+                            value={produto}
                             className="cadastro__entrada"
                             onChange={(e) => setProduto(e.target.value)}
                         />
@@ -99,6 +102,7 @@ export default function ProdutosPage() {
                         <input
                             type="text"
                             id="descricao"
+                            value={descricao}
                             className="cadastro__entrada"
                             onChange={(e) => setDescricao(e.target.value)}
                         />
@@ -109,6 +113,7 @@ export default function ProdutosPage() {
                         <input
                             type="text"
                             id="preco"
+                            value={isNaN(preco) ? 0 : preco}
                             className="cadastro__entrada"
                             onChange={(e) => setPreco(parseFloat(e.target.value))}
                         />
@@ -119,6 +124,7 @@ export default function ProdutosPage() {
                         <input
                             type="text"
                             id="imagem"
+                            value={imagem}
                             className="cadastro__entrada"
                             onChange={(e) => setImagem(e.target.value)}
                         />

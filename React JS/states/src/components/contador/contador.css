@@ -1,0 +1,30 @@
+.contador
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+
+
+    gap: 10px;
+}
+
+.contador button
+{
+    height: 40px;
+    width: 40px;
+
+    padding: 3px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+    text-align: center;
+}   

@@ -8,6 +8,7 @@ import HomePage from './pages/home/home'
 import QuemSomosPage from './pages/quemsomos/quemsomos'
 import CadastroFrutasPage from './pages/cadastrofrutas/cadastrofrutas'
 import ProdutosPage from './pages/produtos/produtos'
+import AtualizarProdutosPage from './pages/atualizarprodutos/atualizarprodutos'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route element={<QuemSomosPage />} path="/quemsomos"/>
       <Route element={<CadastroFrutasPage />} path="/cadfrutas"/>
       <Route element={<ProdutosPage />} path="/produtos"/>
+      <Route element={<AtualizarProdutosPage />} path="/atualizarprodutos"/>
       </Routes>
       </BrowserRouter>
     </>
