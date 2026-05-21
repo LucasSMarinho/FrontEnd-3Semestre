@@ -6,18 +6,13 @@ import CadastroFilme from "../pages/cadastroFilme/CadastroFilme"
 import CadastroGenero from "../pages/cadastroGenero/CadastroGenero"
 
 
-export const Rotas = () => {
+export const Rotas = (props) => {
     return(
         <BrowserRouter>
-         <nav>
-            <Link to="/">Login</Link> {" || "}
-            <Link to="/filme">Filme</Link> {" || "}
-            <Link to="/genero">Genero</Link>
-         </nav>
         <Routes>
             <Route element={<Login />} path="/"/>
-            <Route element={<CadastroFilme />} path="/filme"/>
-            <Route element={<CadastroGenero/>} path="/genero"/>
+            <Route element={<CadastroFilme />} path="/filmes"/>
+            <Route element={<CadastroGenero tema={props.tema} funcTrocarTema={props.funcTrocarTema} />} path="/generos"/>
         </Routes>
         </BrowserRouter>
     )

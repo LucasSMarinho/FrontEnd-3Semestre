@@ -1,4 +1,5 @@
 import "./Cadastro.css";
+import { useState } from "react";
 import Botao from "../botao/Botao";
 
 // Destructuring nas props:
@@ -6,16 +7,22 @@ import Botao from "../botao/Botao";
 //     cadastro, tituloCadastro, valor, setValor, estilo, 
 //     valorSelect, setValorSelect, listaGeneros 
 //   }) => {}
-  
+
+const mostrarBotãoEditar = () => {
+   console.log("Produzindo")
+}
 
 const Cadastro = (props) => {
+
+    
+
     return (
-        <section className="section_cadastro">
-            <form onSubmit={props.funcCadastro} className="layout_grid form_cadastro">
+        <section className={`section_cadastro--${props.temadatela} section_cadastro`}>
+            <form className={`layout_grid form_cadastro form_cadastro--${props.temadatela}`}>
                 <h1>{props.tituloCadastro}</h1>
                 <hr />
                 <div className="campos_cadastro">
-                    <div className="campo_cad_nome">
+                    <div className={`campo_cad_nome campo_cad_nome--${props.temadatela}`}>
                         <label htmlFor="nome">Nome</label>
                         <input type="text" name="nome" placeholder={`Digite o nome do ${props.placeholder}`} 
                         //O valor do input vem de props (estado do componente pai)
@@ -24,17 +31,20 @@ const Cadastro = (props) => {
                         onChange={(e) => props.setValor(e.target.value)}
                         />
                     </div>
-                    <div className="campo_cad_genero" style={{ display: props.visibilidade }}>
+                    <div className={`campo_cad_genero campo_cad_genero--${props.temadatela}`} style={{ display: props.visibilidade }}>
                         <label htmlFor="genero">Gênero</label>
-                        <select name="genero" id="">
-                            <option value="" disabled selected>Selecione</option>
+                        <select name="genero" defaultValue="" id="">
+                            <option value="" disabled>Selecione</option>
                             <option value="">op 1</option>
                             <option value="">op 2</option>
                             <option value="">op 3</option>
                         </select>
                     </div>
 
-                    <Botao nomeDoBotao="Cadastrar" />
+                    <Botao tipoBotao="button" nomeDoBotao={(props.editar) == false ? "Cadastrar" : "Editar"} funcBotao={(props.editar) == false ? props.funcCadastro : props.funcEditar(item)} />
+                    <Botao tipoBotao="button" nomeDoBotao="Trocar Tema" funcBotao={props.funcTema} />
+                    <Botao tipoBotao="button" nomeDoBotao="Trocar Tema" funcBotao={props.funcTema} />
+                    <button className="botao_cancelar" type="button" onClick={props.funcCancelarEdicao} style={{ display: props.cancelarVisibilidade }}>Cancelar</button>
                 </div>
             </form>
         </section>

@@ -1,9 +1,17 @@
 .section_cadastro{
+    padding: 50px 0;
+}
+
+.section_cadastro--Dark
+{
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+.section_cadastro--Light
+{
     background-color: #CC3F55;
     color: white;
-
-    padding: 50px 0;
-
 }
 
 .form_cadastro{
@@ -21,8 +29,15 @@
     width: 100%;
     border-style: solid;
     border-width: 1px;
-    border-color: #73061B;
     margin-top: 5px;
+}
+
+.form_cadastro--Light hr {
+    border-color: #73061B;
+}
+
+.form_cadastro--Dark hr {
+    border-color: #1e1e1e;
 }
 
 .campos_cadastro{
@@ -51,6 +66,18 @@
     margin-top: 7px;
 }
 
+.campo_cad_nome--Light input
+{
+ background-color: #ffffff;
+}
+
+.campo_cad_nome--Dark input
+{
+ background-color: #292929;
+ color: white;
+}
+
+
 .campo_cad_genero,
 .campo_cad_nome{
     display: flex;
@@ -70,4 +97,15 @@
     }
 }
 
-
+.botao_cancelar{
+    /* padding: 5px 100px; */
+    width: 200px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffe100;
+    color: #73061B;
+    border-radius: 6px;
+    /* Negrito */
+    font-weight: bolder;
+}

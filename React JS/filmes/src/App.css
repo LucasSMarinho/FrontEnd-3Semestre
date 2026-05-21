@@ -1,0 +1,11 @@
+.Light
+{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.Dark
+{
+    background-color: rgb(27, 27, 27);
+    color: white;   
+}

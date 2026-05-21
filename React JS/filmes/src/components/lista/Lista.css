@@ -12,6 +12,17 @@
     padding: 40px 0;
 }
 
+.listagem--Dark
+{
+    background-color: rgb(27, 27, 27);
+    color: white;   
+}
+
+.listagem-Light
+{
+    background-color: rgb(255, 255, 255);
+}
+
 .listagem h1{
     text-transform: uppercase;
 }
@@ -100,5 +111,3 @@
     background: none;
     width: fit-content;
 }
-  
-

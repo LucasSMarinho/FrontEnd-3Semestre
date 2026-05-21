@@ -7,7 +7,7 @@ import Excluir from "../../assets/img/trash-can-regular.svg";
 const Lista = (props) => {
     return (
         <section className="layout_grid">
-            <div className="listagem">
+            <div className={`listagem listagem--${props.temadatela}`}>
 
                 <h1>{props.tituloLista}</h1>
                 <hr />
@@ -44,7 +44,7 @@ const Lista = (props) => {
                                             {props.tipoLista === "filme" ? (item.genero?.nome || '-') : '-'}
                                         </td>
                                         <td data-cell="Editar">
-                                            <button className="icon" onClick={() => (props.funcEditar(item))}>
+                                            <button className="icon" onClick={props.funcSetEditar}>
                                                 <img src={Editar} alt="Caneta" />
                                             </button>
                                         </td>

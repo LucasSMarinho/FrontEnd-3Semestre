@@ -1,0 +1,32 @@
+.section-flex
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-Dark
+{
+    background-color: rgb(54, 54, 54);
+}
+
+.section-Light
+{
+    background-color: rgb(230, 230, 230);
+}
+
+.section__button
+{
+    background-color: #d5243f;
+    color: yellow;
+
+    /* ------------------ (tamanho e borda) ------------------ */ 
+    
+    height: 20px;
+    width: 100px;
+    border: none;
+    
+    border-radius: 15px;
+
+}

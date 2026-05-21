@@ -1,8 +1,11 @@
 import "./Header.css";
+import { useState } from "react";
 import Logo from "../../assets/img/logo.svg"
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+
     return (
         <header>
             <div className="layout_grid cabecalho">
@@ -12,9 +15,9 @@ const Header = () => {
                 </Link>
 
                 <nav className="nav_header">
-                    <Link className="link_header" to="/Filme">Filme</Link>
-                    <Link className="link_header" to="/Genero">Gênero</Link>
-                </nav>
+                    <Link className="link_header" to="/Filmes">Filme</Link>
+                    <Link className="link_header" to="/Generos">Gênero</Link>
+                </nav>      
             </div>
         </header>
     )
