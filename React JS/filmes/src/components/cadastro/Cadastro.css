@@ -66,6 +66,11 @@
     margin-top: 7px;
 }
 
+.campo_cad_genero select > option
+{
+    color: #8b8b8b;
+}
+
 .campo_cad_nome--Light input
 {
  background-color: #ffffff;

@@ -41,3 +41,27 @@ header{
         margin-left: 10px;
     }
 }
+
+
+button
+{
+    background: none;
+    border: none;
+}
+
+button img
+{
+    height: 30px;
+    width: 30px;
+
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.nav_header
+{
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+}

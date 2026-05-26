@@ -9,23 +9,23 @@ import Header from './components/header/Header'
 function App() {
   
   const [tema, setTema] = useState("Light")
+  const [valorImg, setValorImg] = useState("Sol")
 
   //função de trocar o tema
   const trocarTema = () => {
     if (tema === "Light") {
-      console.log(tema)
+      setValorImg("Lua")
       setTema("Dark")
     }
     else {
-      console.log(tema)
+      setValorImg("Sol")
       setTema("Light")
     }
   }
 
-
   return (
     <main className={tema}>
-      <Rotas tema={tema} funcTrocarTema={trocarTema} />
+      <Rotas tema={tema} funcTrocarTema={trocarTema} valorImg={valorImg}/>
     </main>
   )
 }

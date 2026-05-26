@@ -11,8 +11,8 @@ export const Rotas = (props) => {
         <BrowserRouter>
         <Routes>
             <Route element={<Login />} path="/"/>
-            <Route element={<CadastroFilme />} path="/filmes"/>
-            <Route element={<CadastroGenero tema={props.tema} funcTrocarTema={props.funcTrocarTema} />} path="/generos"/>
+            <Route element={<CadastroFilme tema={props.tema} funcTrocarTema={props.funcTrocarTema} valorImg={props.valorImg}/>} path="/filmes"/>
+            <Route element={<CadastroGenero tema={props.tema} funcTrocarTema={props.funcTrocarTema} valorImg={props.valorImg}/>} path="/generos"/>
         </Routes>
         </BrowserRouter>
     )

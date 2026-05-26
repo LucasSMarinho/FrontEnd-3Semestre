@@ -2,6 +2,7 @@ import "./Cadastro.css";
 import { useState } from "react";
 import Botao from "../botao/Botao";
 
+
 // Destructuring nas props:
 // const Cadastro = ({ 
 //     cadastro, tituloCadastro, valor, setValor, estilo, 
@@ -14,7 +15,6 @@ const mostrarBotãoEditar = () => {
 
 const Cadastro = (props) => {
 
-    
 
     return (
         <section className={`section_cadastro--${props.temadatela} section_cadastro`}>
@@ -33,17 +33,16 @@ const Cadastro = (props) => {
                     </div>
                     <div className={`campo_cad_genero campo_cad_genero--${props.temadatela}`} style={{ display: props.visibilidade }}>
                         <label htmlFor="genero">Gênero</label>
-                        <select name="genero" defaultValue="" id="">
+                        <select  value={props.generoSelecionado} onChange={(e) => props.setGeneroSelecionado(e.target.value)}>
                             <option value="" disabled>Selecione</option>
-                            <option value="">op 1</option>
-                            <option value="">op 2</option>
-                            <option value="">op 3</option>
+                            {props.lista && props.lista.length > 0 ? (
+                            props.lista.map((item) => (
+                            <option className="opções-generos" value={item.idGenero}>{item.nome}</option>
+                             ) ) ) : (<></>) }
                         </select>
                     </div>
 
-                    <Botao tipoBotao="button" nomeDoBotao={(props.editar) == false ? "Cadastrar" : "Editar"} funcBotao={(props.editar) == false ? props.funcCadastro : props.funcEditar(item)} />
-                    <Botao tipoBotao="button" nomeDoBotao="Trocar Tema" funcBotao={props.funcTema} />
-                    <Botao tipoBotao="button" nomeDoBotao="Trocar Tema" funcBotao={props.funcTema} />
+                    <Botao tipoBotao="button" nomeDoBotao={(props.editar) == false ? "Cadastrar" : "Editar"} funcBotao={() => (props.editar) == false ? props.funcCadastro() : props.funcEditar()} />
                     <button className="botao_cancelar" type="button" onClick={props.funcCancelarEdicao} style={{ display: props.cancelarVisibilidade }}>Cancelar</button>
                 </div>
             </form>
