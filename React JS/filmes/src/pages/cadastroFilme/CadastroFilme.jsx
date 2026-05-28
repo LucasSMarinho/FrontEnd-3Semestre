@@ -9,6 +9,7 @@ import Lista from '../../components/lista/Lista'
 function CadastroFilme(props) {
 
   const [valor, setValor] = useState("")
+  const [imagem, setImagem] = useState("")
   const [editar, setEditar] = useState(false);
   const [itemEditar, setItemEditar] = useState("")
   const [generoSelecionado, setGeneroSelecionado] = useState("")
@@ -62,22 +63,32 @@ function CadastroFilme(props) {
   }
 
   // POST
+
   const funcCadastro = async () => 
   {
     if (valor.trim().length == 0) {
       alert("Filme deve ser preenchido antes de cadastrar!")
       return false
     }
-
-    const objCadastro = {
-      titulo: valor,  
-      imagem: "semImagem",
-      idGenero: generoSelecionado
-    }
+    
 
     try {
-      const retornoAPI = await api.post("/Filme", objCadastro)
+          
+    const formData = new FormData()
+
+    formData.append("Nome", valor)
+    formData.append("idGenero", generoSelecionado)
+    formData.append("Imagem", imagem)
+      
+
+      console.log(generoSelecionado)
+
+      const retornoAPI = await api.post("/Filme", formData,
+      {
+        headers: {"Content-Type": "multipart/form-data"}
+      })
       const dados = await retornoAPI.data
+
 
       if (retornoAPI.status == 201) {
         setListaFilme([...listaFilme, dados])
@@ -90,7 +101,7 @@ function CadastroFilme(props) {
         alert("Houve algum problema ao cadastrar!")
       }
 
-      //chamar o get!
+      FuncGet()
     }
     catch (error) {
       alert("Erro na chamada da API")
@@ -103,6 +114,7 @@ function CadastroFilme(props) {
   const preEditar = (item) => {
 
     console.log(item.titulo)
+    console.log(`https://localhost:7134/imagens/${item.imagem}`)
 
     setItemEditar(item)
     setValor(item.titulo)
@@ -119,14 +131,21 @@ function CadastroFilme(props) {
     }
 
     try{
-    const objCadastro = {
-      titulo: valor,  
-      imagem: "semImagem",
-      idGenero: generoSelecionado
-    }
 
-    const retornoAPI = await api.put(`/Filme/${itemEditar.idFilme}`, objCadastro)
-    alert("Gênero editado com Sucesso!")
+    const formData = new FormData()
+
+    formData.append("Nome", valor)
+    formData.append("idGenero", generoSelecionado)
+    formData.append("Imagem", imagem)
+
+    const retornoAPI = await api.put(`/Filme/${itemEditar.idFilme}`, formData,
+      {
+        headers: {"Content-Type": "multipart/form-data"}
+      })
+
+    console.log(retornoAPI)
+
+
   }
   catch(error)  {
     alert("Falha ao editar item")
@@ -147,6 +166,8 @@ function CadastroFilme(props) {
 
     const retornoAPI = await api.delete(`/Filme/${item.idFilme}`)
     alert("Filme Apagado com Sucesso!")
+
+    FuncGet()
     }
     catch(error)
     {
@@ -184,6 +205,7 @@ function CadastroFilme(props) {
 
         setGeneroSelecionado = {setGeneroSelecionado}
         generoSelecionado = {generoSelecionado}
+        setImagem = {setImagem}
 
       />
       <Lista

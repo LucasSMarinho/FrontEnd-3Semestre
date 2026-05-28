@@ -19,7 +19,7 @@ const Lista = (props) => {
                             {/* tr => table row */}
                             <tr className="table_cabecalho">
                                 {/* th => table head */}
-                                <th>Imagem</th>
+                                <th style={{ display: props.visibilidade }}>Imagem</th>
                                 <th>Nome</th>
                                 <th style={{ display: props.visibilidade }}>Gênero</th>
                                 <th>Editar</th>
@@ -32,13 +32,13 @@ const Lista = (props) => {
                             {props.lista && props.lista.length > 0 ? (
                                 // Se houver itens, faz um map (laço) para renderizar cada item da lista
                                 props.lista.map((item) => (
-                                        <tr className="item_lista" key={(props.tipoLista == "filme") ? item.idFilme : item.idGenero}>
+                                        <tr className="item_lista" key={(props.tipoLista === "filme") ? item.idFilme : item.idGenero}>
                                         {/* {console.log(index)} */}
                                         {/* {console.log(item.idGenero)} */}
                                         <td data-cell="Imagem" style={{ display: props.visibilidade }}>
                                             {/* Segunda célula: mostra o nome do gênero caso o tipo da lista seja "filme".*/}
                                             {/* adicionar essa linha depois de fazer o metd de lista filme: */}
-                                            <img src={(`https://localhost:7134/imagens/${item.imagem}` == "") ? faltadecartaz : `https://localhost:7134/imagens/${item.imagem}`} alt="" />
+                                            <img className="img_cartaz" src={(`https://localhost:7134/imagens/${item.imagem}` == `https://localhost:7134/imagens/` || `https://localhost:7134/imagens/${item.imagem}` == `https://localhost:7134/imagens/null` || `https://localhost:7134/imagens/${item.imagem}` == `https://localhost:7134/imagens/undefined`) ? faltadecartaz : `https://localhost:7134/imagens/${item.imagem}` } alt="" />
                                         </td>
                                         <td data-cell="Nome">
                                             {/* Primeira célula da linha: mostra o nome (se for gênero) ou título (se for filme) */}
@@ -64,7 +64,7 @@ const Lista = (props) => {
                                 ))
                             ) : (
                                 // Caso a lista esteja vazia ou não exista, mostra uma linha dizendo que não há registros
-                                <tr>
+                                <tr key="nenhum-cadastro">
                                     <td>Nenhum registro encontrado.</td>
                                 </tr>
                             )

@@ -9,10 +9,6 @@ import Botao from "../botao/Botao";
 //     valorSelect, setValorSelect, listaGeneros 
 //   }) => {}
 
-const mostrarBotãoEditar = () => {
-   console.log("Produzindo")
-}
-
 const Cadastro = (props) => {
 
 
@@ -33,15 +29,18 @@ const Cadastro = (props) => {
                     </div>
                     <div className={`campo_cad_genero campo_cad_genero--${props.temadatela}`} style={{ display: props.visibilidade }}>
                         <label htmlFor="genero">Gênero</label>
-                        <select  value={props.generoSelecionado} onChange={(e) => props.setGeneroSelecionado(e.target.value)}>
+                        <select value={props.generoSelecionado} onChange={(e) => props.setGeneroSelecionado(e.target.value)}>
                             <option value="" disabled>Selecione</option>
                             {props.lista && props.lista.length > 0 ? (
                             props.lista.map((item) => (
-                            <option className="opções-generos" value={item.idGenero}>{item.nome}</option>
+                            <option key={(props.tipoLista == "filme") ? item.idFilme : item.idGenero} className="opcoes-generos" value={item.idGenero}>{item.nome}</option>
                              ) ) ) : (<></>) }
                         </select>
                     </div>
-
+                    <div className={`campo_cad_genero campo_cad_genero--${props.temadatela}`} style={{ display: props.visibilidade }}>
+                        <label htmlFor="imagem" className={`label_image label_image--${props.temadatela}`}> Selecionar Imagem </label>
+                        <input className={`input_image input_image--${props.temadatela}`} type="file" id="imagem" onChange={(e) => props.setImagem(e.target.files[0])} style={ {display: "none"} }/>
+                    </div>
                     <Botao tipoBotao="button" nomeDoBotao={(props.editar) == false ? "Cadastrar" : "Editar"} funcBotao={() => (props.editar) == false ? props.funcCadastro() : props.funcEditar()} />
                     <button className="botao_cancelar" type="button" onClick={props.funcCancelarEdicao} style={{ display: props.cancelarVisibilidade }}>Cancelar</button>
                 </div>
