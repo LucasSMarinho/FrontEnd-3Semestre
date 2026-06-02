@@ -5,7 +5,6 @@ import Cadastro from '../../components/cadastro/Cadastro'
 import { useEffect, useState } from 'react'
 import api from '../../services/services'
 import Lista from '../../components/lista/Lista'
-import Swal from 'sweetalert2'
 import { Alerta } from '../../components/alerta/Alerta'
 
 function CadastroGenero(props) {
@@ -73,22 +72,22 @@ function CadastroGenero(props) {
         setListaGeneros([...listaGeneros, dados])
 
 
-        Swal.fire({
+        Alerta({
         title: "Genero cadastrado com sucesso",
         text: `O genero ${objCadastro.nome} foi cadastrado com sucesso`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
         icon: "success"
       })
         limparFormulario()
       }
       else
       {
-        Swal.fire({
+        Alerta({
         title: "Problema ao cadastrar o genero",
         text: `O genero ${objCadastro.nome} não foi cadastrado`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
         icon: "error"
       })
       }
@@ -96,11 +95,11 @@ function CadastroGenero(props) {
       //chamar o get!
     }
     catch (error) {
-      Swal.fire({
+      Alerta({
         title: "Erro na chamada na API",
         text: `O genero ${objCadastro.nome} não foi cadastrado`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
         icon: "error"
       })
       console.log(error)
@@ -123,11 +122,11 @@ function CadastroGenero(props) {
   {
 
     if (valor.trim().length == 0) {
-      Swal.fire({
+      Alerta({
         title: "Preencha os valores corretamente",
         text: "Gênero deve ser preenchido antes de atualizar!",
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
         icon: "warning"
         
       })
@@ -140,19 +139,19 @@ function CadastroGenero(props) {
     }
 
     const retornoAPI = await api.put(`/Genero/${itemEditar.idGenero}`, objCadastro)
-   Swal.fire({
+   Alerta({
         title: "Genero atualizado com sucesso",
         text: `O genero ${objCadastro.nome} foi atualizado com sucesso`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
       })
   }
   catch(error)  {
-    Swal.fire({
+    Alerta({
         title: "Erro na chamada na API",
         text: `O genero ${objCadastro.nome} não foi atualizado`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
       })
     console.log(error)
   }         
@@ -164,7 +163,7 @@ function CadastroGenero(props) {
   const funcExcluir = async(item) =>
   {
 
-    const result = await Swal.fire({
+    const result = await Alerta({
       title: "Excluir Gênero?",
       text: `Deseja realmente excluir ${item.nome}`,
       icon: "warning",
@@ -173,7 +172,6 @@ function CadastroGenero(props) {
       cancelButtonColor: "#d33",
       confirmButtonText: "Confirmar Exclusão",
       cancelButtonText: "Cancelar",
-      background: props.tema == "Dark" ? "black" :  "white",
     })
 
     if(!result.isConfirmed)
@@ -184,19 +182,19 @@ function CadastroGenero(props) {
     try
     {
     const retornoAPI = await api.delete(`/Genero/${item.idGenero}`)
-     Swal.fire({
+     Alerta({
         title: "Genero deletado com sucesso",
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
       })
     }
     catch(error)
     {
-      Swal.fire({
+      Alerta({
         title: "Erro na chamada na API",
         text: `O genero ${item.nome} não foi excluido`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        background: props.tema == "Dark" ? "black" :  "white",
+        
       })
       console.log(error)
     }

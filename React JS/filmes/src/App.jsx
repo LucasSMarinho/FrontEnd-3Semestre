@@ -5,23 +5,12 @@ import CadastroFilme from './pages/cadastroFilme/CadastroFilme'
 import CadastroGenero from './pages/cadastroGenero/CadastroGenero'
 import { Rotas } from './routes/Routes'
 import Header from './components/header/Header'
+import { useContext } from 'react'
+import { TemaContext } from './context/TemaContext'
 
-function App() {
+function App() {  
   
-  const [tema, setTema] = useState("Light")
-  const [valorImg, setValorImg] = useState("Sol")
-
-  //função de trocar o tema
-  const trocarTema = () => {
-    if (tema === "Light") {
-      setValorImg("Lua")
-      setTema("Dark")
-    }
-    else {
-      setValorImg("Sol")
-      setTema("Light")
-    }
-  }
+  const {tema, trocarTema, valorImg} = useContext(TemaContext)
 
   return (
     <main className={tema}>

@@ -5,6 +5,28 @@ import ImagemSol from "../../assets/img/Sun.svg"
 import ImagemLua from "../../assets/img/Moon.svg"
 
 const Login = (props) => {
+    const [senha, setSenha] = useState("")
+    const [email, setEmail] = useState("")
+ 
+    const funcEntrar = async () => {
+        console.log("Email:", email);
+        console.log("Senha:", senha);
+
+        try
+        {   
+            objLogin = {
+                email: email,
+                senha: senha
+            }
+
+            const response = await api.post('/Auth/login', objLogin);
+        } 
+        catch (error) 
+        {
+            console.error("Erro ao fazer login:", error);
+        }
+    }
+
     return(
         <main className= "main_login">
           <div className={`banner banner--${props.tema}`}></div>
@@ -16,14 +38,15 @@ const Login = (props) => {
                 <div className="campos_login">
                     <div className="campo_input">
                         <label htmlFor="email">Email:</label>
-                        <input type="email" name="email" placeholder="Digite seu e-mail"/>
+                        <input type="email" name="email" placeholder="Digite seu e-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className="campo_input">
                         <label htmlFor="senha">Senha:</label>
-                        <input type="password" name="senha" placeholder="Digite sua senha"/>
+                        <input type="password" name="senha" placeholder="Digite sua senha" value={senha} onChange={(e) => setSenha(e.target.value)}                     />
                     </div>
                 </div>
-                <Botao nomeDoBotao="Entrar"/>
+                <Botao nomeDoBotao="Cadastrar" funcBotao={props.funcCadastrarUsuario}/>
+                <Botao nomeDoBotao="Entrar" funcBotao={props.funcEntrar}/>
                 
             </form>
           </section>
