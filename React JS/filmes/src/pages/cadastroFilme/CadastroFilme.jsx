@@ -3,8 +3,10 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Cadastro from '../../components/cadastro/Cadastro'
 import { useEffect, useState } from 'react'
+import { Alerta } from '../../components/alerta/Alerta'
 import api from '../../services/services'
 import Lista from '../../components/lista/Lista'
+import swal from 'sweetalert2'
 
 function CadastroFilme(props) {
 
@@ -19,74 +21,75 @@ function CadastroFilme(props) {
   //Mudar Editar para true ou false
 
   const funcEditarFalse = (item) => {
-      setEditar(false)
-    }
-  
+    setEditar(false)
+  }
+
   const funcEditarTrue = (item) => {
-      setEditar(true)
-    }
+    setEditar(true)
+  }
 
 
   //GET - UseEffect
-  
+
   useEffect(() => {
     FuncGet()
-    FuncGetGenero()    
+    FuncGetGenero()
   }, [])
 
   //GET
-  const FuncGet = async () => 
-  {
-    try{
-    const retornoAPI = await api.get('/Filme')
-    const dados = await retornoAPI.data
-    console.log(dados)
-    setListaFilme(dados)
+  const FuncGet = async () => {
+    try {
+      const retornoAPI = await api.get('/Filme')
+      const dados = await retornoAPI.data
+      console.log(dados)
+      setListaFilme(dados)
     }
-    catch(error)
-    {
+    catch (error) {
       console.log(error);
     }
   }
 
-  const FuncGetGenero = async () => 
-  {
-    try{
-    const retornoAPI = await api.get('/Genero')
-    const dados = await retornoAPI.data
-    setListaGeneros(dados)
+  const FuncGetGenero = async () => {
+    try {
+      const retornoAPI = await api.get('/Genero')
+      const dados = await retornoAPI.data
+      setListaGeneros(dados)
     }
-    catch(error)
-    {
+    catch (error) {
       console.log(error);
     }
   }
 
   // POST
 
-  const funcCadastro = async () => 
-  {
+  const funcCadastro = async () => {
     if (valor.trim().length == 0) {
-      alert("Filme deve ser preenchido antes de cadastrar!")
+      Alerta({
+        title: "Preencha os valores corretamente",
+        text: `O filme não foi cadastrado`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+        icon: "warning"
+      })
       return false
     }
-    
+
 
     try {
-          
-    const formData = new FormData()
 
-    formData.append("Nome", valor)
-    formData.append("idGenero", generoSelecionado)
-    formData.append("Imagem", imagem)
-      
+      const formData = new FormData()
+
+      formData.append("Nome", valor)
+      formData.append("idGenero", generoSelecionado)
+      formData.append("Imagem", imagem)
+
 
       console.log(generoSelecionado)
 
       const retornoAPI = await api.post("/Filme", formData,
-      {
-        headers: {"Content-Type": "multipart/form-data"}
-      })
+        {
+          headers: { "Content-Type": "multipart/form-data" }
+        })
       const dados = await retornoAPI.data
 
 
@@ -94,17 +97,35 @@ function CadastroFilme(props) {
         setListaFilme([...listaFilme, dados])
 
 
-        alert("Gênero cadastrado com sucesso!")
+        Alerta({
+          title: "Filme cadastrado com sucesso",
+          text: `O filme ${objCadastro.nome} foi cadastrado com sucesso`,
+          confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+          icon: "success"
+        })
         limparFormulario()
       }
       else {
-        alert("Houve algum problema ao cadastrar!")
+        Alerta({
+          title: "Erro ao cadastrar filme",
+          text: `O filme ${objCadastro.nome} não foi cadastrado`,
+          confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+          icon: "warning"
+        })
       }
 
       FuncGet()
     }
     catch (error) {
-      alert("Erro na chamada da API")
+      Alerta({
+        title: "Erro ao cadastrar filme",
+        text: `O filme ${objCadastro.nome} não foi cadastrado`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+        icon: "error"
+      })
       console.log(error)
     }
   }
@@ -122,56 +143,93 @@ function CadastroFilme(props) {
   }
 
 
-  const funcEditar = async() =>
-  {
+  const funcEditar = async () => {
 
     if (valor.trim().length == 0) {
-      alert("Gênero deve ser preenchido antes de editar!")
+      Alerta({
+        title: "Filme deve ser preenchido antes de editar",
+        text: `O filme ${objCadastro.nome} não foi cadastrado`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+        icon: "warning"
+      })
       return false
     }
 
-    try{
+    try {
 
-    const formData = new FormData()
+      const formData = new FormData()
 
-    formData.append("Nome", valor)
-    formData.append("idGenero", generoSelecionado)
-    formData.append("Imagem", imagem)
+      formData.append("Nome", valor)
+      formData.append("idGenero", generoSelecionado)
+      formData.append("Imagem", imagem)
 
-    const retornoAPI = await api.put(`/Filme/${itemEditar.idFilme}`, formData,
-      {
-        headers: {"Content-Type": "multipart/form-data"}
+      const retornoAPI = await api.put(`/Filme/${itemEditar.idFilme}`, formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" }
+        })
+
+      Alerta({
+        title: "Filme editado com sucesso",
+        text: `O filme ${objCadastro.nome} foi editado com sucesso`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+        icon: "success"
       })
 
-    console.log(retornoAPI)
+    }
+    catch (error) {
+      Alerta({
+        title: "Erro ao editar filme",
+        text: `O filme ${objCadastro.nome} não foi editado`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
 
+        icon: "error"
+      })
+      console.log(error)
+    }
 
   }
-  catch(error)  {
-    alert("Falha ao editar item")
-    console.log(error)
-  }         
-  
-}
 
 
   //DELETE
-  const funcExcluir = async(item) =>
-  {
-    try
-    {
-    if (!confirm("Deseja realmente deseja excluir esse gênero?")) {
-      return;
-    }
+  const funcExcluir = async (item) => {
+    try {
+      const result = await Alerta({
+        title: "Excluir Filme?",
+        text: `Deseja realmente excluir ${item.nome}`,
+        icon: "warning",
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#d33",
+        showCancelButton: true,
+        confirmButtonText: "Confirmar Exclusão",
+        cancelButtonText: "Cancelar",
+      })
 
-    const retornoAPI = await api.delete(`/Filme/${item.idFilme}`)
-    alert("Filme Apagado com Sucesso!")
 
-    FuncGet()
+      if (!result.isConfirmed) {
+        return false
+      }
+
+      const retornoAPI = await api.delete(`/Filme/${item.idFilme}`)
+      Alerta({
+        title: "Filme excluído com sucesso",
+        text: `O filme foi excluído com sucesso`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+        icon: "success"
+      })
+
+      FuncGet()
     }
-    catch(error)
-    {
-      alert("Falha ao excluir item")
+    catch (error) {
+      Alerta({
+        title: "Erro ao excluir filme",
+        text: `O filme não foi excluído`,
+        confirmButtonColor: props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
+
+        icon: "error"
+      })
       console.log(error)
     }
   }
@@ -182,20 +240,20 @@ function CadastroFilme(props) {
 
   return (
     <>
-       <Header 
-      funcTema={props.funcTrocarTema}
-      imagemTema={props.valorImg}
+      <Header
+        funcTema={props.funcTrocarTema}
+        imagemTema={props.valorImg}
       />
       <Cadastro
         tituloCadastro="Cadastro de Filmes"
         temadatela={props.tema}
-        
+
         lista={listaGeneros}
 
         placeholder="Filme"
         valor={valor}
         funcCadastro={funcCadastro}
-        
+
         // função que muda o state
         setValor={setValor}
         editar={editar}
@@ -203,9 +261,9 @@ function CadastroFilme(props) {
         funcCancelarEdicao={funcEditarFalse}
         cancelarVisibilidade={editar ? "block" : "none"}
 
-        setGeneroSelecionado = {setGeneroSelecionado}
-        generoSelecionado = {generoSelecionado}
-        setImagem = {setImagem}
+        setGeneroSelecionado={setGeneroSelecionado}
+        generoSelecionado={generoSelecionado}
+        setImagem={setImagem}
 
       />
       <Lista

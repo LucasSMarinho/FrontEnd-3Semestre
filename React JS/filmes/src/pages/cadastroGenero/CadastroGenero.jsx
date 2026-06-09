@@ -80,6 +80,7 @@ function CadastroGenero(props) {
         icon: "success"
       })
         limparFormulario()
+        getListaGeneros()
       }
       else
       {
@@ -90,6 +91,7 @@ function CadastroGenero(props) {
         
         icon: "error"
       })
+       getListaGeneros()
       }
 
       //chamar o get!
@@ -145,13 +147,13 @@ function CadastroGenero(props) {
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
         
       })
+       getListaGeneros()
   }
   catch(error)  {
     Alerta({
         title: "Erro na chamada na API",
         text: `O genero ${objCadastro.nome} não foi atualizado`,
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
-        
       })
     console.log(error)
   }         
@@ -167,14 +169,16 @@ function CadastroGenero(props) {
       title: "Excluir Gênero?",
       text: `Deseja realmente excluir ${item.nome}`,
       icon: "warning",
-      showCancelButton: true,
       confirmButtonColor: "#d33",
       cancelButtonColor: "#d33",
+      showCancelButton: true,
       confirmButtonText: "Confirmar Exclusão",
       cancelButtonText: "Cancelar",
     })
 
-    if(!result.isConfirmed)
+    console.log(result)
+
+    if(!result)
     {
       return false
     }
@@ -187,6 +191,7 @@ function CadastroGenero(props) {
         confirmButtonColor:  props.tema == "Dark" ? "rgb(200, 0, 0)" : "rgb(200, 0, 0)",
         
       })
+       getListaGeneros()
     }
     catch(error)
     {
